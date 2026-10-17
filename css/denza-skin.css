@@ -1,149 +1,110 @@
 /* ============================================
-   DENZA SKIN — стили для сайта прошивки Denza
-   Заменяет vw-skin.css
+   DENZA SKIN v2 — 3 переключаемые палитры
+   A = Navy Classic | B = Chrome Premium | C = Azure Energy
    ============================================ */
 
-/* ---- Брендовые цвета Denza ---- */
-:root {
-    --denza-primary: #1a1a2e;   /* тёмно-синий/чёрный */
-    --denza-accent: #e94560;    /* красный акцент */
-    --denza-light: #f5f5f5;
-    --denza-border: #e0e0e0;
+/* ---- Тема A (по умолчанию): глубокий navy + лазурь в микро-акцентах ---- */
+:root, html[data-theme="a"] {
+    --dz-dark: #0B0F14;  --dz-dark-2: #182028;
+    --dz-light: #F7F9FB; --dz-card: #FFFFFF;
+    --dz-border: #DCE3EA; --dz-border-dark: rgba(255,255,255,.14);
+    --dz-text: #22303C;  --dz-text-muted: #5A6B7A;
+    --dz-text-dark: #FFFFFF; --dz-text-dark-muted: #C9D3DC;
+    --dz-accent: #14293E; --dz-accent-2: #00A0E9;
+    --dz-glow1: #00A0E9; --dz-glow2: #7FD4FF;
+    --dz-cta-bg: #14293E; --dz-cta-text: #FFFFFF; --dz-cta-border: #14293E;
+    --dz-cta-h-bg: transparent; --dz-cta-h-text: #14293E; --dz-cta-h-border: #14293E;
+}
+/* ---- Тема B: хром-градиент (в духе эмблемы) ---- */
+html[data-theme="b"] {
+    --dz-accent: #182028; --dz-accent-2: #9AA6B2;
+    --dz-glow1: #B9C2CC; --dz-glow2: #EDF1F5;
+    --dz-cta-bg: linear-gradient(135deg,#EDF1F5,#B9C2CC); --dz-cta-text: #0B0F14; --dz-cta-border: transparent;
+    --dz-cta-h-bg: linear-gradient(135deg,#FFFFFF,#C7CED6); --dz-cta-h-text: #0B0F14; --dz-cta-h-border: transparent;
+}
+/* ---- Тема C: энергичная лазурь «наследие капли» ---- */
+html[data-theme="c"] {
+    --dz-dark: #0A141C; --dz-dark-2: #12222E;
+    --dz-accent: #00A0E9; --dz-accent-2: #7FD4FF;
+    --dz-glow1: #00A0E9; --dz-glow2: #7FD4FF;
+    --dz-cta-bg: #00A0E9; --dz-cta-text: #06222F; --dz-cta-border: #00A0E9;
+    --dz-cta-h-bg: transparent; --dz-cta-h-text: #00A0E9; --dz-cta-h-border: #00A0E9;
 }
 
-/* ---- Переопределение .red под Denza ---- */
-.red {
-    color: var(--denza-accent);
-}
+/* ==== Перекраска текущей структуры (vw-skin) на переменные ==== */
+body { background: var(--dz-light); }
+.loader { background: var(--dz-dark); }
+.loader-block-item { background: var(--dz-accent-2); }
+.title, h1.title { color: var(--dz-text); }
+.slogan { color: var(--dz-text-muted); }
+.red { background: none; -webkit-text-fill-color: var(--dz-accent); }
+.one .red { -webkit-text-fill-color: var(--dz-accent-2); }
 
-/* ============================================
-   ТАБЛИЦА ЦЕН (блок .eight)
-   ============================================ */
+.header { background: var(--dz-dark); }
+.header::after { background: linear-gradient(90deg, transparent, var(--dz-glow1) 25%, var(--dz-glow2) 50%, var(--dz-glow1) 75%, transparent); }
+.header.active { background: var(--dz-dark-2); }
+.mob-menu { background: var(--dz-dark); }
+.menu-item.active:after { background: var(--dz-accent-2); }
+.bars.active { background: var(--dz-accent-2); }
 
-.price-table-wrapper {
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    margin: 30px 0;
-}
+.header-btn { background: var(--dz-cta-bg); border: 1px solid var(--dz-cta-border); color: var(--dz-cta-text) !important; }
+.header-btn:hover { background: var(--dz-cta-h-bg); border-color: var(--dz-cta-h-border); color: var(--dz-cta-h-text) !important; }
 
-.price-table {
-    width: 100%;
-    min-width: 700px;
-    border-collapse: collapse;
-    font-size: 14px;
-    line-height: 1.5;
-}
+.one { background: linear-gradient(180deg, var(--dz-dark) 0%, var(--dz-dark-2) 100%); }
+.one .title, .six .title, .nine .title, .eleven .title { color: var(--dz-text-dark); }
+.one .slogan, .one-inner-text { color: var(--dz-text-dark-muted); }
+.one-onner { background: rgba(255,255,255,.06); border: 1px solid var(--dz-border-dark); }
 
-.price-table th,
-.price-table td {
-    padding: 12px 14px;
-    text-align: center;
-    border: 1px solid var(--denza-border);
-    vertical-align: middle;
-}
+.two, .four, .eight, .ten { background: var(--dz-card); }
+.two-inner { color: var(--dz-text); border-color: var(--dz-border); }
+.two-inner:hover { background: var(--dz-dark); color: var(--dz-text-dark); }
+.two-inner-header-icon { background: var(--dz-light); }
+.two-inner-header-icon.active { background: var(--dz-accent-2); }
+.two-row-line.first, .two-row-line.second, .two-row-line.third, .two-row-line.fourth { background: var(--dz-border); }
 
-.price-table th {
-    background: var(--denza-primary);
-    color: #fff;
-    font-weight: 600;
-    font-size: 15px;
-    position: sticky;
-    top: 0;
-}
+.five { background: var(--dz-light); }
+.five .title, .five-inner-title { color: var(--dz-text); }
+.five-inner-text { color: var(--dz-text-muted); }
 
-.price-table th:first-child,
-.price-table td:first-child {
-    text-align: left;
-    min-width: 220px;
-}
+.six { background: var(--dz-dark); }
+.six .six-slogan, .six .six-text { color: var(--dz-text-dark-muted); }
+.seven { background: var(--dz-light); }
+.seven .title { color: var(--dz-text); }
+.seven .six-slogan, .seven .six-text { color: var(--dz-text-muted); }
 
-.price-table tbody tr:nth-child(even) {
-    background: var(--denza-light);
-}
+.price-card { background: var(--dz-card); border: 1px solid var(--dz-border); }
+.price-card:hover { background: var(--dz-dark); color: var(--dz-text-dark); }
+.price-card h3 { color: var(--dz-accent); }
+.price-card:hover h3 { color: #fff; }
+.price-card li { border-color: var(--dz-border); }
+.check::before { color: var(--dz-accent-2); }
+.highlight { border-color: var(--dz-accent); }
+.highlight::before { background: var(--dz-accent); }
 
-.price-table tbody tr:hover {
-    background: #eef4ff;
-}
+/* FIX зоны 3: убираем «пилюли» в таблице цен */
+.price-table .highlight::before, .price-table .highlight::after { content: none; }
+.price-table th { background: var(--dz-dark); }
+.price-table th.highlight { background: var(--dz-accent); }
 
-/* Выделенная колонка «Комфорт» */
-.price-table .highlight {
-    background: rgba(233, 69, 96, 0.06) !important;
-    border-left: 2px solid var(--denza-accent);
-    border-right: 2px solid var(--denza-accent);
-    font-weight: 600;
-}
+.nine { background: var(--dz-dark-2); }
+.nine-inner { border-color: var(--dz-border-dark); }
+.nine-inner.active { border-color: var(--dz-accent-2); }
+.nine-inner-title, .nine-inner-text { color: var(--dz-text-dark-muted); }
+.nine-inner-btn { background: var(--dz-accent-2); }
 
-.price-table th.highlight {
-    background: var(--denza-accent);
-    color: #fff;
-}
+.eleven { background: var(--dz-dark); }
+.ten-form-input input, textarea, .eleven-form-tell { background: #fff; border: 1px solid var(--dz-border); color: var(--dz-text-muted); }
+.ten-form-sub input { background: var(--dz-cta-bg); color: var(--dz-cta-text); border: 1px solid var(--dz-cta-border); }
+.ten-form-policy, .ten-slogan, .ten-slogan .company-name, .ten-slogan .ten-address, .ten-form-slogan, .ten-link-text { color: var(--dz-text); }
 
-/* Итоговые строки */
-.price-table .total-row td {
-    font-style: italic;
-    color: #666;
-    border-top: 2px solid var(--denza-border);
-}
+.footer { background: var(--dz-card); }
+.footer .menu-link { color: var(--dz-text) !important; }
+.footer-bottom { border-top: 1px solid var(--dz-border); }
+.footer-bottom-link { color: var(--dz-text-muted) !important; }
+.f-modal-content-close { background: var(--dz-accent-2); }
 
-.price-table .price-row td {
-    font-weight: 700;
-    font-size: 16px;
-    background: rgba(233, 69, 96, 0.04);
-}
-
-.price-table .save-row td {
-    color: #2e9e4f;
-    font-weight: 700;
-}
-
-/* Примечания под таблицей */
-.price-note {
-    margin-top: 24px;
-    font-size: 13px;
-    color: #555;
-    line-height: 1.7;
-}
-
-.price-note p {
-    margin-bottom: 6px;
-    padding-left: 16px;
-    position: relative;
-}
-
-.price-note p::before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    color: var(--denza-accent);
-}
-
-/* ============================================
-   АДАПТИВНОСТЬ ТАБЛИЦЫ
-   ============================================ */
-
-@media (max-width: 768px) {
-    .price-table {
-        font-size: 12px;
-    }
-    .price-table th,
-    .price-table td {
-        padding: 8px 6px;
-    }
-    .price-table th:first-child,
-    .price-table td:first-child {
-        min-width: 140px;
-    }
-    .price-table .price-row td {
-        font-size: 13px;
-    }
-}
-
-@media (max-width: 480px) {
-    .price-table-wrapper {
-        margin: 16px -15px;
-    }
-    .price-table {
-        min-width: 560px;
-    }
-}
+/* ==== Виджет-переключатель тем ==== */
+.dz-switcher { position: fixed; right: 16px; bottom: 16px; z-index: 4000; display: flex; gap: 8px; padding: 8px; background: rgba(11,15,20,.85); border: 1px solid rgba(255,255,255,.25); border-radius: 999px; backdrop-filter: blur(6px); }
+.dz-sw { width: 34px; height: 34px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; padding: 0; overflow: hidden; display: flex; }
+.dz-sw i { flex: 1; }
+.dz-sw.active { border-color: #fff; }
