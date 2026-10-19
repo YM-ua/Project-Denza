@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
 /* ============================================
    DENZA SKIN v2 — 3 переключаемые палитры
    A = Navy Classic | B = Chrome Premium | C = Azure Energy
@@ -108,3 +109,6 @@ body { background: var(--dz-light); }
 .dz-sw { width: 34px; height: 34px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; padding: 0; overflow: hidden; display: flex; }
 .dz-sw i { flex: 1; }
 .dz-sw.active { border-color: #fff; }
+/* ==== Лого Denza ==== */
+.logo-denza { display: block; width: 210px; height: auto; color: #FFFFFF; }
+@media (max-width: 768px) { .logo-denza { width: 164px; } }
