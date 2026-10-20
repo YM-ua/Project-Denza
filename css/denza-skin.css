@@ -112,3 +112,195 @@ body { background: var(--dz-light); }
 /* ==== Лого Denza ==== */
 .logo-denza { display: block; width: 210px; height: auto; color: #FFFFFF; }
 @media (max-width: 768px) { .logo-denza { width: 164px; } }
+/* ==== Прайс Denza ==== */
+.eight-slogan { color: var(--dz-text-muted, #5A6B7A); font-size: 18px; font-weight: 500; margin: 12px 0 30px; }
+.price-card h3 { color: var(--dz-text, #22303C); }
+.price-total { color: var(--dz-accent, #14293E); font-weight: 700; font-size: 18px; text-align: right; margin-top: 15px; }
+.price-save { font-size: 13px; color: var(--dz-text-muted, #5A6B7A); line-height: 1.5; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--dz-border, #DCE3EA); }
+.price-save b { color: var(--dz-accent, #14293E); font-weight: 600; }
+.highlight::before { background: var(--dz-accent, #14293E); }
+/* ==== Іконки «Чому обирають» ==== */
+.two-inner-header-icon {
+    width: 52px; height: 52px; border-radius: 50%;
+    background: transparent;
+    display: flex; align-items: center; justify-content: center;
+    padding: 0;
+}
+.two-inner-header-icon svg { width: 36px; height: 36px; }
+.two-inner-header-icon.active { background: transparent; }
+.two-row-line { background: var(--dz-border) !important; }
+
+/* ==== Бейджі довіри в hero ==== */
+.trust-row { margin-top: 10px; align-items: stretch; }
+.trust-row .one-onner {
+    background: transparent;
+    border: none;
+    border-left: 1px solid var(--dz-border-dark);
+    border-radius: 0;
+    justify-content: flex-start;
+    padding: 8px 24px;
+    height: 100%;
+}
+.trust-row .col-lg-4:first-child .one-onner { border-left: none; }
+.trust-row .one-inner-text p {
+    font-size: 15px; line-height: 1.45; font-weight: 500;
+    letter-spacing: 0; text-transform: none;
+    color: var(--dz-text-dark-muted);
+}
+.trust-row .one-inner-icon { margin-right: 14px; }
+.trust-row .one-inner-icon img { width: 18px; height: 18px; }
+@media (max-width: 768px) {
+    .trust-row .one-onner { border-left: none; border-top: 1px solid var(--dz-border-dark); padding: 12px 0; }
+    .trust-row .col-lg-4:first-child .one-onner { border-top: none; }
+}
+/* ==== Фікс після скріншота №2 ==== */
+
+/* Підзаголовки на світлих секціях — читабельні, не бліді */
+.two .six-slogan, .five .six-slogan, .eight .six-slogan, .ten .six-slogan {
+    color: var(--dz-text-muted);
+    font-size: 18px;
+    font-weight: 500;
+}
+
+/* Секція «Чому обирають»: нормальна карточна сітка замість ліній */
+.two-row-line { display: none; }
+.two-row {
+    border: 1px solid var(--dz-border);
+    border-radius: 16px;
+    overflow: hidden;
+}
+.two-inner {
+    border: none !important;
+    border-right: 1px solid var(--dz-border) !important;
+    border-bottom: 1px solid var(--dz-border) !important;
+    padding: 28px 24px !important;
+    min-height: 0;
+}
+.two-row > :nth-child(3n+1) .two-inner { border-right: none !important; }
+.two-row > :nth-last-child(-n+2) .two-inner { border-bottom: none !important; }
+.two-inner:hover { background: var(--dz-light); color: var(--dz-text); }
+
+/* Іконки секції: підкладка + товщіший штрих, щоб виглядали завершено */
+.two-inner-header-icon {
+    width: 56px; height: 56px;
+    background: color-mix(in srgb, var(--dz-accent-2) 12%, transparent);
+}
+.two-inner-header-icon svg { width: 34px; height: 34px; }
+.two-inner-header-icon svg path,
+.two-inner-header-icon svg circle,
+.two-inner-header-icon svg rect { stroke-width: 2.4; }
+
+/* Бейджі довіри: симетрично */
+.trust-row > div { display: flex; }
+.trust-row .one-onner {
+    width: 100%;
+    justify-content: center;
+    padding: 8px 12px;
+}
+.trust-row .one-inner-text p { text-align: left; }
+
+/* Іконки контактів — один розмір */
+.ten-link-icon img { width: 20px; height: 20px; }
+/* ==== Пакети: картки та іконки ==== */
+.five .row > div { display: flex; }
+.five-inner {
+    width: 100%;
+    padding: 28px 24px;
+    background: var(--dz-card);
+    border: 1px solid var(--dz-border);
+    border-radius: 16px;
+    height: 100%;
+}
+.five-inner:hover .five-inner-icon { filter: none; }
+.five-inner-icon {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+}
+.five-inner-icon svg { width: 40px; height: 40px; }
+.five-inner-title { font-size: 20px; margin-bottom: 10px; }
+.five-inner-text { font-size: 15px; line-height: 1.6; }
+/* ==== Фікс після скріншота №3 ==== */
+
+/* Підзаголовок секції — повноцінний H3, не абзац */
+.section-sub,
+.two .six-slogan, .five .six-slogan, .eight .six-slogan, .ten .six-slogan, .eight-slogan {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--dz-text);
+    letter-spacing: .2px;
+    margin: 10px 0 34px;
+}
+
+/* «Чому обирають»: картки 3×2 з проміжками, без ламаної сітки */
+.two-row-line { display: none; }
+.two-row { border: 0; overflow: visible; }
+.two-row > [class*="col-"] { display: flex; margin-bottom: 24px; }
+.two-inner {
+    width: 100%;
+    min-height: 0;
+    padding: 28px 24px !important;
+    background: var(--dz-card);
+    border: 1px solid var(--dz-border) !important;
+    border-radius: 16px !important;
+}
+/* нейтралізація минулих правил, щоб у всіх карток були повні рамки */
+.two-row > :nth-child(3n+1) .two-inner { border-right: 1px solid var(--dz-border) !important; }
+.two-row > :nth-last-child(-n+2) .two-inner { border-bottom: 1px solid var(--dz-border) !important; }
+.two-inner:hover { background: var(--dz-light); color: var(--dz-text); }
+/* ==== Фікс №5: політика конфіденційності + футер ==== */
+
+/* Посилання на політику — видиме на будь-якому фоні (за href, не за класом) */
+a[href*="privacypolicy"] { text-decoration: underline; }
+.eleven a[href*="privacypolicy"],
+.footer a[href*="privacypolicy"] {
+    color: var(--dz-accent-2) !important;
+    -webkit-text-fill-color: var(--dz-accent-2) !important;
+}
+.ten a[href*="privacypolicy"] {
+    color: var(--dz-accent) !important;
+    -webkit-text-fill-color: var(--dz-accent) !important;
+}
+
+/* © і дисклеймер — один дрібний стиль, як сноски під цінами */
+.footer-bottom-link,
+.footer-disclaimer {
+    font-size: 13px !important;
+    line-height: 1.6;
+    color: var(--dz-text-muted) !important;
+    opacity: 1;
+}
+.footer-disclaimer {
+    max-width: 760px;
+    margin: 8px auto 0;
+}
+/* ==== Фікс №6: футер-сноска та мобільний прайс ==== */
+
+/* © — трохи крупніше і контрастніше за дисклеймер */
+.footer-bottom-link {
+    font-size: 14px !important;
+    color: var(--dz-text) !important;
+    opacity: .85;
+}
+
+/* Дисклеймер — справжня сноса: дрібна, центрована, не липне до країв */
+.footer-disclaimer {
+    font-size: 11px !important;
+    line-height: 1.55;
+    color: var(--dz-text-muted) !important;
+    text-align: center;
+    max-width: 640px;
+    margin: 6px auto 0;
+    padding: 0 24px;
+}
+
+/* Відступ після прайсу: padding не схлопується ніде, включно з мобільним */
+.price-note {
+    margin-top: 0;
+    padding-top: 32px;
+}
+@media (max-width: 768px) {
+    .price-note { padding-top: 24px; }
+    .price-note p { font-size: 12px; }
+}
